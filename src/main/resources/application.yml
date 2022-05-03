@@ -1,0 +1,22 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    username: root
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mituan
+#    ??bootlogo
+  main:
+    banner-mode: off
+mybatis-plus:
+  global-config:
+    db-config:
+#      ????
+      id-type: auto
+#      ??boot?logo
+    banner: false
+#??
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
