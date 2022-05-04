@@ -13,6 +13,7 @@ public class Generator {
                 .globalConfig(builder -> {
                     builder.author("rds") // 设置作者
 //                            .enableSwagger() // 开启 swagger 模式
+                            .disableOpenDir()
                             .fileOverride() // 覆盖已生成文件
                             .outputDir("D:\\javaIDE\\mituan\\src\\main\\java"); // 指定输出目录
                 })
@@ -23,7 +24,11 @@ public class Generator {
                 })
                 .strategyConfig(builder -> {
                     builder.addInclude("employee") // 设置需要生成的表名
-                            .addTablePrefix("t_", "c_"); // 设置过滤表前缀
+                            .addTablePrefix("t_", "c_")// 设置过滤表前缀
+                            .entityBuilder().enableLombok(); //entry支持lombok
+                })
+                .strategyConfig(builder -> {
+                    builder.controllerBuilder().enableRestStyle();//controller支持rest风格
                 })
 //                .templateEngine(new FreemarkerTemplateEngine()) // 使用Freemarker引擎模板，默认的是Velocity引擎模板
                 .execute();
